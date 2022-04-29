@@ -6,46 +6,45 @@ function prepareInput(input) {
 }
 
 function step(xs, ip) {
-    const offset = xs[ip];
-    xs[ip] += 1;
-    ip += offset;
+  const offset = xs[ip];
+  xs[ip] += 1;
+  ip += offset;
 
-    return xs, ip;
+  return xs, ip;
 }
 
 function part1(input) {
-    // copy input into xs using slice
-    let xs = input.slice();
-    let ip = 0;
-    let count = 0;
+  let xs = input.slice();
+  let ip = 0;
+  let count = 0;
 
-    while (ip >= 0 && ip < xs.length) {
-        xs, ip = step(xs, ip);
-        count += 1;
-    }
+  while (ip >= 0 && ip < xs.length) {
+    xs, (ip = step(xs, ip));
+    count += 1;
+  }
 
-    return count;
+  return count;
 }
 
 function stepPart2(xs, ip) {
-    const offset = xs[ip];
-    xs[ip] = offset >= 3 ? xs[ip] - 1 : xs[ip] + 1;
-    ip += offset;
+  const offset = xs[ip];
+  xs[ip] = offset >= 3 ? xs[ip] - 1 : xs[ip] + 1;
+  ip += offset;
 
-    return xs, ip;
+  return xs, ip;
 }
 
 function part2(input) {
-    let xs = input.slice();
-    let ip = 0;
-    let count = 0;
+  let xs = input.slice();
+  let ip = 0;
+  let count = 0;
 
-    while (ip >= 0 && ip < xs.length) {
-        xs, ip = stepPart2(xs, ip);
-        count += 1;
-    }
+  while (ip >= 0 && ip < xs.length) {
+    xs, (ip = stepPart2(xs, ip));
+    count += 1;
+  }
 
-    return count;
+  return count;
 }
 
 export default function solve(input) {
