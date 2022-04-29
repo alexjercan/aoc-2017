@@ -19,11 +19,15 @@ function part1(input) {
 }
 
 function part2(input) {
-    return input.filter((words) =>
+  return input.filter((words) =>
     Array.from(
       words
         .reduce(
-          (acc, word) => acc.set(word.split("").sort().join(""), (acc.get(word.split("").sort().join("")) || 0) + 1),
+          (acc, word) =>
+            acc.set(
+              word.split("").sort().join(""),
+              (acc.get(word.split("").sort().join("")) || 0) + 1
+            ),
           new Map()
         )
         .values()
