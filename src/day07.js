@@ -26,7 +26,7 @@ function dfs(node, input) {
   const results = children.map((child) => dfs(child, input));
 
   if (results.length > 0) {
-    const result = results.find(result => typeof result === "number");
+    const result = results.find((result) => typeof result === "number");
     if (result) {
       return result;
     }
@@ -56,10 +56,7 @@ function dfs(node, input) {
   }
 
   return {
-    weight: results.reduce(
-      (acc, { weight }) => acc + weight,
-      weight
-    )
+    weight: results.reduce((acc, { weight }) => acc + weight, weight),
   };
 }
 
